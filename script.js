@@ -20,11 +20,13 @@ function DispalyTheBook() {
     const title = document.createElement('li');
     const author = document.createElement('li');
     const remove = document.createElement('Button');
+    const line = document.createElement('hr');
     const titleLi = document.createTextNode(BookArray[i].title);
     const authorLi = document.createTextNode(BookArray[i].author);
     remove.textContent = 'remove';
     remove.value = i;
     remove.id = i;
+    remove.className = 'removeButton';
     title.id = `title${i}`;
     author.id = `author${i}`;
     const removeButton = document.getElementById(i);
@@ -34,29 +36,32 @@ function DispalyTheBook() {
       list.appendChild(title);
       list.appendChild(author);
       list.appendChild(remove);
+      list.appendChild(line);
     }
   }
 }
 
-function removeBookList() {
-  for (let i = 0; i < BookArray.length; i += 1) {
-    if (document.getElementById(BookArray[i].id) != null) {
-      // eslint-disable-next-line no-loop-func
-      document.getElementById(BookArray[i].id).addEventListener('click', () => {
-        function isId(value) {
-          return value.id !== BookArray[i].id;
-        }
-        if (document.getElementById(`title${i}`) != null) {
-          document.getElementById(`title${i}`).remove();
-        }
-        if (document.getElementById(`author${i}`) != null) {
-          document.getElementById(`author${i}`).remove();
-        }
-        if (document.getElementById(i) != null) {
-          document.getElementById(i).remove();
-        }
-        BookArray = BookArray.filter(isId);
-      });
+function removeBookList(e) {
+  function isId(value) {
+    return value.id !== e.target.id;
+  }
+  if (document.getElementById(`title${e.target.id}`) != null) {
+    document.getElementById(`title${e.target.id}`).remove();
+  }
+  if (document.getElementById(`author${e.target.id}`) != null) {
+    document.getElementById(`author${e.target.id}`).remove();
+  }
+  if (document.getElementById(e.target.id) != null) {
+    document.getElementById(e.target.id).remove();
+  }
+  BookArray = BookArray.filter(isId);
+}
+
+function addEvents() {
+  const buttonArray = document.getElementsByClassName('removeButton');
+  for (let i = 0; i < buttonArray.length; i += 1) {
+    if (document.addEventListener) {
+      buttonArray[i].addEventListener('click', removeBookList);
     }
   }
 }
@@ -66,6 +71,6 @@ addBook.addEventListener('click', () => {
   AddBook(id, titleInput.value, authorInput.value);
   localStorage.setItem('BookArray', JSON.stringify(BookArray));
   DispalyTheBook();
-  removeBookList();
+  addEvents();
   id += 1;
 });

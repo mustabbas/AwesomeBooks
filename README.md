@@ -2,27 +2,33 @@
 
 # Project Name
 
-> One paragraph statement about the project.
+> Awesome books.
 
-![screenshot](./app_screenshot.png)
+![screenshot](assets/img/ScreenShot.png)
 
-Additional description about the project and its features.
+This website build Awesome books: plain JavaScript with objects.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+-  HTML,CSS,JavaScript
+-  Visual Studio Code: A source code editor
+-  git: A tool for managing source code
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://mustabbas.github.io/AwesomeBooks/)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+**If you installed git you can clone the code to your machine, or download a ZIP of all the files directly.
+
+Download the ZIP from this location, or run the following git command to clone the files to your machine:
+
+git clone https://github.com/mustabbas/AwesomeBooks
+Once the files are on your machine, open the course folder in Visual Studio Code.
+
+With the files open in Visual Studio Code, press the Go Live button at the bottom of the window to launch the files with Live Server.**
 
 
 To get a local copy up and running follow these simple example steps.
@@ -43,23 +49,22 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Author1**
+👤 **MUSTAFA ABBAS**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/mustabbas)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mustafa-abbas-7555ba10a)
 
-👤 **Author2**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Nakitto Catherine**
+
+- GitHub: [@githubhandle](https://github.com/Cathella)
+
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/mustabbas/AwesomeBooks/issues).
 
 ## Show your support
 
@@ -67,9 +72,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- I would like to thank the designer who design this website [Cindy Shin](https://www.behance.net/adagio07) [design guidelines,](https://www.behance.net/gallery/29845175/CC-Global-Summit-2015) 
 
 ## 📝 License
 
