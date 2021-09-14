@@ -32,7 +32,6 @@ class Book {
     remove.value = this.id;
     remove.id = this.id;
     remove.className = 'removeButton';
-
     title.id = `title${this.id}`;
     author.id = `author${this.id}`;
     const removeButton = document.getElementById(this.id);
@@ -49,8 +48,10 @@ class Book {
 let id = 0;
 addBook.addEventListener('click', () => {
   const myBook = new Book(id, titleInput.value, authorInput.value);
+  myBook.remove();
   myBook.add();
   myBook.saveTolocal();
   myBook.DispalyTheBook();
+  console.log(BookArray);
   id += 1;
 });

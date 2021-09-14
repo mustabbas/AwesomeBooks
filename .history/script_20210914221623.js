@@ -21,6 +21,11 @@ class Book {
     localStorage.setItem('BookArray', JSON.stringify(BookArray));
   }
 
+  remove () {
+    BookArray.splice(1, 1);
+    this.saveTolocal();
+  }
+
   DispalyTheBook() {
     const title = document.createElement('li');
     const author = document.createElement('li');
@@ -32,7 +37,6 @@ class Book {
     remove.value = this.id;
     remove.id = this.id;
     remove.className = 'removeButton';
-
     title.id = `title${this.id}`;
     author.id = `author${this.id}`;
     const removeButton = document.getElementById(this.id);
@@ -49,6 +53,7 @@ class Book {
 let id = 0;
 addBook.addEventListener('click', () => {
   const myBook = new Book(id, titleInput.value, authorInput.value);
+  myBook.remove();
   myBook.add();
   myBook.saveTolocal();
   myBook.DispalyTheBook();

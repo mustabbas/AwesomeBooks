@@ -3,22 +3,21 @@ const authorInput = document.getElementById('bookAuthor');
 const addBook = document.getElementById('add');
 const list = document.getElementById('list');
 
-const BookArray = [];
-
 class Book {
   constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
+    this.BookArray = [];
   }
 
   add() {
-    BookArray.push(this);
+    this.BookArray.push(new Book(this.id, this.title, this.author));
+    return this.BookArray;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   saveTolocal() {
-    localStorage.setItem('BookArray', JSON.stringify(BookArray));
+    localStorage.setItem('BookArray', JSON.stringify(this.BookArray));
   }
 
   DispalyTheBook() {
@@ -32,7 +31,6 @@ class Book {
     remove.value = this.id;
     remove.id = this.id;
     remove.className = 'removeButton';
-
     title.id = `title${this.id}`;
     author.id = `author${this.id}`;
     const removeButton = document.getElementById(this.id);
@@ -46,11 +44,9 @@ class Book {
     }
   }
 }
-let id = 0;
+
 addBook.addEventListener('click', () => {
-  const myBook = new Book(id, titleInput.value, authorInput.value);
+  const myBook = new Book(1, titleInput.value, authorInput.value);
   myBook.add();
   myBook.saveTolocal();
-  myBook.DispalyTheBook();
-  id += 1;
 });

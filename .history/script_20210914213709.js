@@ -1,41 +1,39 @@
 const titleInput = document.getElementById('bookTitle');
 const authorInput = document.getElementById('bookAuthor');
 const addBook = document.getElementById('add');
-const list = document.getElementById('list');
-
-const BookArray = [];
+// const list = document.getElementById('list');
 
 class Book {
   constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
+    this.BookArray = [];
   }
 
-  add() {
-    BookArray.push(this);
+  add(id, title, author) {
+    this.BookArray.push(new Book(id, title, author));
+    return this.BookArray;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   saveTolocal() {
-    localStorage.setItem('BookArray', JSON.stringify(BookArray));
+    localStorage.setItem('BookArray', JSON.stringify(this.BookArray));
   }
 
-  DispalyTheBook() {
+  DispalyTheBook(id, title, author) {
     const title = document.createElement('li');
     const author = document.createElement('li');
     const remove = document.createElement('Button');
     const line = document.createElement('hr');
-    const titleLi = document.createTextNode(this.title);
-    const authorLi = document.createTextNode(this.author);
+    const titleLi = document.createTextNode(title);
+    const authorLi = document.createTextNode(author);
     remove.textContent = 'remove';
-    remove.value = this.id;
-    remove.id = this.id;
+    remove.value = id;
+    remove.id = id;
     remove.className = 'removeButton';
-
-    title.id = `title${this.id}`;
-    author.id = `author${this.id}`;
-    const removeButton = document.getElementById(this.id);
+    title.id = `title${id}`;
+    author.id = `author${id}`;
+    const removeButton = document.getElementById(id);
     if (removeButton == null) {
       title.appendChild(titleLi);
       author.appendChild(authorLi);
@@ -45,12 +43,15 @@ class Book {
       list.appendChild(line);
     }
   }
+
 }
-let id = 0;
+
+const myBook = new Book();
+
+console.log(myBook.saveTolocal());
+console.log(this.BookArray);
+
 addBook.addEventListener('click', () => {
-  const myBook = new Book(id, titleInput.value, authorInput.value);
-  myBook.add();
+  myBook.add(1, titleInput.value, authorInput.value);
   myBook.saveTolocal();
-  myBook.DispalyTheBook();
-  id += 1;
 });

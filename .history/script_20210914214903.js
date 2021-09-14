@@ -3,22 +3,20 @@ const authorInput = document.getElementById('bookAuthor');
 const addBook = document.getElementById('add');
 const list = document.getElementById('list');
 
-const BookArray = [];
-
 class Book {
   constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
+    this.BookArray = [];
   }
 
   add() {
-    BookArray.push(this);
+    this.BookArray.push(this.id, this.title, this.author);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   saveTolocal() {
-    localStorage.setItem('BookArray', JSON.stringify(BookArray));
+    localStorage.setItem('BookArray', JSON.stringify(this.BookArray));
   }
 
   DispalyTheBook() {
@@ -32,7 +30,6 @@ class Book {
     remove.value = this.id;
     remove.id = this.id;
     remove.className = 'removeButton';
-
     title.id = `title${this.id}`;
     author.id = `author${this.id}`;
     const removeButton = document.getElementById(this.id);

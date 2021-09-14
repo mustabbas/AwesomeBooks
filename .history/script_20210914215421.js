@@ -16,7 +16,6 @@ class Book {
     BookArray.push(this);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   saveTolocal() {
     localStorage.setItem('BookArray', JSON.stringify(BookArray));
   }
@@ -32,7 +31,6 @@ class Book {
     remove.value = this.id;
     remove.id = this.id;
     remove.className = 'removeButton';
-
     title.id = `title${this.id}`;
     author.id = `author${this.id}`;
     const removeButton = document.getElementById(this.id);
