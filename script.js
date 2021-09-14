@@ -3,7 +3,7 @@ const authorInput = document.getElementById('bookAuthor');
 const addBook = document.getElementById('add');
 const list = document.getElementById('list');
 
-const BookArray = [];
+let BookArray = [];
 
 class Book {
   constructor(id, title, author) {
@@ -18,10 +18,10 @@ class Book {
 
   static remove(id) {
     BookArray.splice(id, 1);
-    document.getElementById('title' + id);
-    document.getElementById('author' + id);
-    document.getElementById(id);
-    document.getElementById('line' + id);
+    document.getElementById(`title${id}`).remove();
+    document.getElementById(`author${id}`).remove();
+    document.getElementById(id).remove();
+    document.getElementById(`line${id}`).remove();
 
     Book.prototype.saveTolocal();
   }
@@ -29,13 +29,6 @@ class Book {
   // eslint-disable-next-line class-methods-use-this
   saveTolocal() {
     localStorage.setItem('BookArray', JSON.stringify(BookArray));
-  }
-
-  ReadLocalStorage() {
-    const localBook = JSON.parse(localStorage.getItem('BookArray'));
-    if (localBook !== null) {
-      BookArray = localBook;
-    }
   }
 
   DispalyTheBook() {
@@ -68,7 +61,14 @@ class Book {
     }
   }
 }
-let id = 0;
+const localBook = JSON.parse(localStorage.getItem('BookArray'));
+let id;
+if (localBook !== null) {
+  id = localBook.length;
+} else {
+  id = 0;
+}
+
 addBook.addEventListener('click', () => {
   const myBook = new Book(id, titleInput.value, authorInput.value);
   myBook.add();
@@ -78,8 +78,12 @@ addBook.addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-  const myBook = new Book();
-  myBook.ReadLocalStorage();
-  myBook.DispalyTheBook();
+  const localBook = JSON.parse(localStorage.getItem('BookArray'));
+  if (localBook !== null) {
+    BookArray = localBook;
+    for (let index = 0; index < BookArray.length; index += 1) {
+      const myBook = new Book(BookArray[index].id, BookArray[index].title, BookArray[index].author);
+      myBook.DispalyTheBook();
+    }
+  }
 });
-

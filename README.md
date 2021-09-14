@@ -4,7 +4,7 @@
 
 > Awesome books.
 
-![screenshot](assets/img/ScreenShot.png)
+![screenshot](app_screenshot.png)
 
 This website build Awesome books: plain JavaScript with objects.
 
