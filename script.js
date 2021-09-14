@@ -14,30 +14,38 @@ let BookArray = [];
 function AddBook(id, title, author) {
   BookArray.push(new Book(id, title, author));
 }
+function saveTolocal() {
+  localStorage.setItem('BookArray', JSON.stringify(BookArray));
+}
+function getLocalStorage() {
+  const Book = JSON.parse(localStorage.getItem('BookArray'));
 
-function DispalyTheBook() {
-  for (let i = 0; i < BookArray.length; i += 1) {
-    const title = document.createElement('li');
-    const author = document.createElement('li');
-    const remove = document.createElement('Button');
-    const line = document.createElement('hr');
-    const titleLi = document.createTextNode(BookArray[i].title);
-    const authorLi = document.createTextNode(BookArray[i].author);
-    remove.textContent = 'remove';
-    remove.value = i;
-    remove.id = i;
-    remove.className = 'removeButton';
-    title.id = `title${i}`;
-    author.id = `author${i}`;
-    const removeButton = document.getElementById(i);
-    if (removeButton == null) {
-      title.appendChild(titleLi);
-      author.appendChild(authorLi);
-      list.appendChild(title);
-      list.appendChild(author);
-      list.appendChild(remove);
-      list.appendChild(line);
-    }
+  if (Book !== null) {
+    BookArray = Book;
+  }
+}
+
+function DispalyTheBook(id, titleB, authorB) {
+  const title = document.createElement('li');
+  const author = document.createElement('li');
+  const remove = document.createElement('Button');
+  const line = document.createElement('hr');
+  const titleLi = document.createTextNode(titleB);
+  const authorLi = document.createTextNode(authorB);
+  remove.textContent = 'remove';
+  remove.value = id;
+  remove.id = id;
+  remove.className = 'removeButton';
+  title.id = `title${id}`;
+  author.id = `author${id}`;
+  const removeButton = document.getElementById(id);
+  if (removeButton == null) {
+    title.appendChild(titleLi);
+    author.appendChild(authorLi);
+    list.appendChild(title);
+    list.appendChild(author);
+    list.appendChild(remove);
+    list.appendChild(line);
   }
 }
 
@@ -55,6 +63,7 @@ function removeBookList(e) {
     document.getElementById(e.target.id).remove();
   }
   BookArray = BookArray.filter(isId);
+  saveTolocal();
 }
 
 function addEvents() {
@@ -69,8 +78,12 @@ function addEvents() {
 let id = 0;
 addBook.addEventListener('click', () => {
   AddBook(id, titleInput.value, authorInput.value);
-  localStorage.setItem('BookArray', JSON.stringify(BookArray));
-  DispalyTheBook();
+  saveTolocal();
+  DispalyTheBook(id, titleInput.value, authorInput.value);
   addEvents();
   id += 1;
+});
+
+window.addEventListener('load', () => {
+  getLocalStorage();
 });
