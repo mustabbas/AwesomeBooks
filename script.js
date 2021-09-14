@@ -46,9 +46,15 @@ function removeBookList() {
         function isId(value) {
           return value.id !== BookArray[i].id;
         }
-        document.getElementById(`title${i}`).remove();
-        document.getElementById(`author${i}`).remove();
-        document.getElementById(i).remove();
+        if (document.getElementById(`title${i}`) != null) {
+          document.getElementById(`title${i}`).remove();
+        }
+        if (document.getElementById(`author${i}`) != null) {
+          document.getElementById(`author${i}`).remove();
+        }
+        if (document.getElementById(i) != null) {
+          document.getElementById(i).remove();
+        }
         BookArray = BookArray.filter(isId);
       });
     }
