@@ -1,75 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@600&display=swap');
 
 * {
-    font-family: 'Commissioner', sans-serif;
+  font-family: 'Commissioner', sans-serif;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .book-list {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 table {
-    width: 100vw;
-    border: 4px solid black;
-    margin: 0 15px;
-    border-collapse:collapse
+  width: 100vw;
+  border: 4px solid black;
+  margin: 0 15px;
+  border-collapse: collapse;
 }
 
-tr:nth-child(odd){
-    background-color: #ccc;
-  }
+tr:nth-child(odd) {
+  background-color: #ccc;
+}
 
 td {
-    padding: 5px 20px;
-    font-size: 24px;
-    border: 0px;
+  padding: 5px 20px;
+  font-size: 24px;
+  border: 0;
 }
 
 td:last-child {
-    text-align: end;
+  text-align: end;
 }
 
 button {
-    font-size: 20px;
-    padding: 7px 12px;
-    border: 4px solid black;
-    background-color: #fff;
-    box-shadow: 4px 4px 0 black;
+  font-size: 20px;
+  padding: 7px 12px;
+  border: 4px solid black;
+  background-color: #fff;
+  box-shadow: 4px 4px 0 black;
 }
 
 .form {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    margin-right: auto;
-    margin-left: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 hr {
-    height: 5px;
-    width: 200px;
-    background-color: black;
+  height: 5px;
+  width: 200px;
+  background-color: black;
 }
 
 input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 4px solid black;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 18px;
-    font-weight: bold;
-  }
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 4px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-  .form button {
-      align-self: end;
-  }
+.form button {
+  align-self: end;
+}
