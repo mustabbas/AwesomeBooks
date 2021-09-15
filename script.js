@@ -33,12 +33,12 @@ class Book {
 
   DispalyTheBook() {
     if (BookArray.length !== 0) {
-      const title = document.createElement('li');
-      const author = document.createElement('li');
+      const row = document.createElement('tr');
+      const title = document.createElement('td');
+      const removeTD = document.createElement('td');
       const remove = document.createElement('Button');
-      const line = document.createElement('hr');
-      const titleLi = document.createTextNode(this.title);
-      const authorLi = document.createTextNode(this.author);
+
+      const titleLi = document.createTextNode(`"${this.title}${'"'.concat(`by${this.author}`)}`);
       remove.textContent = 'remove';
       remove.value = this.id;
       remove.id = this.id;
@@ -46,17 +46,14 @@ class Book {
       remove.setAttribute('onclick', `Book.remove(${this.id})`);
 
       title.id = `title${this.id}`;
-      author.id = `author${this.id}`;
-      line.id = `line${this.id}`;
 
       const removeButton = document.getElementById(this.id);
       if (removeButton == null) {
+        removeTD.appendChild(remove);
         title.appendChild(titleLi);
-        author.appendChild(authorLi);
-        list.appendChild(title);
-        list.appendChild(author);
-        list.appendChild(remove);
-        list.appendChild(line);
+        row.appendChild(title);
+        row.appendChild(removeTD);
+        list.appendChild(row);
       }
     }
   }

@@ -1,0 +1,24 @@
+
+
+h1 {
+    text-align: center;
+}
+
+.book-list {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100vw;
+    border: 2px solid black;
+    margin: 0 15px;
+}
+
+td {
+    padding: 2px 10px;
+}
+
+td:last-child {
+    text-align: end;
+}
