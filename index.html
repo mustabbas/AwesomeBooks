@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Awesome books</title>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
- <h1>Awesome books</h1> 
-   <ul id="list">
-   </ul>
-   <input type="text" id="bookTitle" placeholder="title"/>
-   <input type="text" id="bookAuthor" placeholder="author"/>
-   <button id="add">add</button>
+ <h1>All awesome books</h1> 
+   <div class="book-list">
+   <table id="list">
+   </table>
+   </div>
+   <div class="form">
+     <hr>
+     <h2>Add a new Book</h2>
+   <input type="text" id="bookTitle" placeholder="Title"/>
+   <input type="text" id="bookAuthor" placeholder="Author"/>
+   <button id="add">Add</button>
+   </div>
    <script type='text/javascript' src='script.js'></script>
 </body>
 </html>

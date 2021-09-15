@@ -34,17 +34,10 @@ With the files open in Visual Studio Code, press the Go Live button at the botto
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+Any modern web browser will do.
 
 ### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
+Follow the steps described before.
 
 
 ## Authors

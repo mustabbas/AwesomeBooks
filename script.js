@@ -4,7 +4,6 @@ const addBook = document.getElementById('add');
 const list = document.getElementById('list');
 
 let BookArray = [];
-
 class Book {
   constructor(id, title, author) {
     this.id = id;
@@ -17,12 +16,8 @@ class Book {
   }
 
   static remove(id) {
-    BookArray.splice(id, 1);
-    document.getElementById(`title${id}`).remove();
-    document.getElementById(`author${id}`).remove();
-    document.getElementById(id).remove();
-    document.getElementById(`line${id}`).remove();
-
+    BookArray.splice(id - 1, 1);
+    document.getElementById(`row${id}`).remove();
     Book.prototype.saveTolocal();
   }
 
@@ -33,30 +28,24 @@ class Book {
 
   DispalyTheBook() {
     if (BookArray.length !== 0) {
-      const title = document.createElement('li');
-      const author = document.createElement('li');
+      const row = document.createElement('tr');
+      const title = document.createElement('td');
+      const removeTD = document.createElement('td');
       const remove = document.createElement('Button');
-      const line = document.createElement('hr');
-      const titleLi = document.createTextNode(this.title);
-      const authorLi = document.createTextNode(this.author);
-      remove.textContent = 'remove';
+      const titleLi = document.createTextNode(`"${this.title}${'"'.concat(`by ${this.author}`)}`);
+      remove.textContent = 'Remove';
       remove.value = this.id;
       remove.id = this.id;
       remove.className = 'removeButton';
       remove.setAttribute('onclick', `Book.remove(${this.id})`);
-
-      title.id = `title${this.id}`;
-      author.id = `author${this.id}`;
-      line.id = `line${this.id}`;
-
+      row.id = `row${this.id}`;
       const removeButton = document.getElementById(this.id);
       if (removeButton == null) {
+        removeTD.appendChild(remove);
         title.appendChild(titleLi);
-        author.appendChild(authorLi);
-        list.appendChild(title);
-        list.appendChild(author);
-        list.appendChild(remove);
-        list.appendChild(line);
+        row.appendChild(title);
+        row.appendChild(removeTD);
+        list.appendChild(row);
       }
     }
   }
