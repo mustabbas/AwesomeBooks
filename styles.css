@@ -38,6 +38,7 @@
 
 h1 {
   text-align: center;
+  margin-bottom: 1em;
 }
 
 .book-list {
@@ -104,4 +105,11 @@ input[type=text] {
 
 .form button {
   align-self: end;
+}
+
+.contact {
+  width: 60%;
+  margin: 0 auto 3em;
+  font-size: 1.2em;
+  line-height: 1.7em;
 }
