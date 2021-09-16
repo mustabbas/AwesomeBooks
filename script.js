@@ -19,6 +19,7 @@ class Book {
 
   add() {
     BookArray.push(this);
+    this.constructor.DisplayList();
   }
 
   static remove(id) {
@@ -28,24 +29,24 @@ class Book {
   }
 
   static showDate() {
-    let current = new Date();
-    let month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
+    const current = new Date();
+    const month = [];
+    month[0] = 'January';
+    month[1] = 'February';
+    month[2] = 'March';
+    month[3] = 'April';
+    month[4] = 'May';
+    month[5] = 'June';
+    month[6] = 'July';
+    month[7] = 'August';
+    month[8] = 'September';
+    month[9] = 'October';
+    month[10] = 'November';
+    month[11] = 'December';
 
-    let cDate = month[current.getMonth()] + ' ' + current.getDate() + "th " + current.getFullYear() + ",";
-    let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-    let dateTime = cDate + ' ' + cTime;
+    const cDate = `${month[current.getMonth()]} ${current.getDate()}th ${current.getFullYear()},`;
+    const cTime = `${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
+    const dateTime = `${cDate} ${cTime}`;
 
     const myDate = document.querySelector('#date');
     const showMyDate = document.createElement('div');
@@ -81,6 +82,24 @@ class Book {
       }
     }
   }
+
+  static DisplayList() {
+    bklist.classList.remove('display-none');
+    bkform.classList.add('display-none');
+    contact.classList.add('display-none');
+  }
+
+  static DisplayForm() {
+    bklist.classList.add('display-none');
+    bkform.classList.remove('display-none');
+    contact.classList.add('display-none');
+  }
+
+  static DisplayContact() {
+    bklist.classList.add('display-none');
+    bkform.classList.add('display-none');
+    contact.classList.remove('display-none');
+  }
 }
 
 const localBook = JSON.parse(localStorage.getItem('BookArray'));
@@ -91,32 +110,18 @@ if (localBook !== null) {
   id = 0;
 }
 
-function toggleDisplayList() {
-  bklist.classList.remove('display-none');
-  bkform.classList.add('display-none');
-  contact.classList.add('display-none');
-}
-function toggleDisplayForm() {
-  bklist.classList.add('display-none');
-  bkform.classList.remove('display-none');
-  contact.classList.add('display-none');
-}
-function toggleDisplayContact() {
-  bklist.classList.add('display-none');
-  bkform.classList.add('display-none');
-  contact.classList.remove('display-none');
-}
-
-navlist.addEventListener('click', toggleDisplayList);
-navform.addEventListener('click', toggleDisplayForm);
-navcontact.addEventListener('click', toggleDisplayContact);
+navlist.addEventListener('click', Book.DisplayList);
+navform.addEventListener('click', Book.DisplayForm);
+navcontact.addEventListener('click', Book.DisplayContact);
 
 addBook.addEventListener('click', () => {
   const myBook = new Book(id, titleInput.value, authorInput.value);
-  myBook.add();
-  myBook.saveTolocal();
-  myBook.DispalyTheBook();
-  id += 1;
+  if (titleInput.value !== '' || authorInput.value !== '') {
+    myBook.add();
+    myBook.saveTolocal();
+    myBook.DispalyTheBook();
+    id += 1;
+  }
 });
 
 window.addEventListener('load', () => {
@@ -129,7 +134,6 @@ window.addEventListener('load', () => {
     }
   }
 });
-
 
 // Show date
 document.addEventListener('DOMContentLoaded', Book.showDate);
