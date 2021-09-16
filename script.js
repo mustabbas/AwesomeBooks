@@ -2,6 +2,12 @@ const titleInput = document.getElementById('bookTitle');
 const authorInput = document.getElementById('bookAuthor');
 const addBook = document.getElementById('add');
 const list = document.getElementById('list');
+const navlist = document.getElementById('navlist');
+const navform = document.getElementById('navform');
+const navcontact = document.getElementById('navcontact');
+const bklist = document.getElementById('bklist');
+const bkform = document.getElementById('bkform');
+const contact = document.getElementById('contact');
 
 let BookArray = [];
 class Book {
@@ -13,12 +19,22 @@ class Book {
 
   add() {
     BookArray.push(this);
+    this.constructor.DisplayList();
   }
 
   static remove(id) {
     BookArray.splice(id - 1, 1);
     document.getElementById(`row${id}`).remove();
     Book.prototype.saveTolocal();
+  }
+
+  static showDate() {
+    // eslint-disable-next-line no-undef
+    const { DateTime } = luxon;
+    const myDate = document.querySelector('#date');
+    const showMyDate = document.createElement('div');
+    showMyDate.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+    myDate.appendChild(showMyDate);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -49,7 +65,26 @@ class Book {
       }
     }
   }
+
+  static DisplayList() {
+    bklist.classList.remove('display-none');
+    bkform.classList.add('display-none');
+    contact.classList.add('display-none');
+  }
+
+  static DisplayForm() {
+    bklist.classList.add('display-none');
+    bkform.classList.remove('display-none');
+    contact.classList.add('display-none');
+  }
+
+  static DisplayContact() {
+    bklist.classList.add('display-none');
+    bkform.classList.add('display-none');
+    contact.classList.remove('display-none');
+  }
 }
+
 const localBook = JSON.parse(localStorage.getItem('BookArray'));
 let id;
 if (localBook !== null) {
@@ -58,12 +93,18 @@ if (localBook !== null) {
   id = 0;
 }
 
+navlist.addEventListener('click', Book.DisplayList);
+navform.addEventListener('click', Book.DisplayForm);
+navcontact.addEventListener('click', Book.DisplayContact);
+
 addBook.addEventListener('click', () => {
   const myBook = new Book(id, titleInput.value, authorInput.value);
-  myBook.add();
-  myBook.saveTolocal();
-  myBook.DispalyTheBook();
-  id += 1;
+  if (titleInput.value !== '' || authorInput.value !== '') {
+    myBook.add();
+    myBook.saveTolocal();
+    myBook.DispalyTheBook();
+    id += 1;
+  }
 });
 
 window.addEventListener('load', () => {
@@ -76,3 +117,6 @@ window.addEventListener('load', () => {
     }
   }
 });
+
+// Show date
+document.addEventListener('DOMContentLoaded', Book.showDate);

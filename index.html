@@ -8,18 +8,45 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
- <h1>All awesome books</h1> 
-   <div class="book-list">
-   <table id="list">
-   </table>
-   </div>
-   <div class="form">
+  <div class="nav">
+    <h3>Awesome Book</h3>
+    <ul>
+      <li><a href="#" id="navlist">List</a></li>
+      <li><a href="#" id="navform">Add new</a></li>
+      <li><a href="#" id="navcontact">Contact</a></li>
+    </ul>
+  </div>
+  <div id="date"></div>
+ 
+  <div id="bklist">
+    <h1>All awesome books</h1>
+    <div class="book-list"> 
+      <table id="list">
+      </table>
+    </div>
+  </div>
+   <div id="bkform" class="form display-none">
      <hr>
-     <h2>Add a new Book</h2>
+     <h1>Add a new Book</h1>
    <input type="text" id="bookTitle" placeholder="Title"/>
    <input type="text" id="bookAuthor" placeholder="Author"/>
    <button id="add">Add</button>
    </div>
+   <div id="contact" class="contact display-none">
+     <h1>Contact Information</h1>
+    <div>Do you have any questions or you just want to say "Hello"?
+      <br>You can reach out to us!
+    </div>
+    <ul>
+      <li>Our E-mail: mail@mail.com</li>
+      <li>Our phone number: 0043586534422</li>
+      <li>Our address: Streetname 22, 84503 City, Country</li>
+    </ul>
+   </div>
+   <div class="nav">
+    <h3>Copyright</h3>
+   </div>
    <script type='text/javascript' src='script.js'></script>
+   <script src="https://moment.github.io/luxon/global/luxon.js"></script>
 </body>
 </html>

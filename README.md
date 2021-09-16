@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Awesome Books
 
 > Awesome books.
 
@@ -48,9 +48,10 @@ Follow the steps described before.
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mustafa-abbas-7555ba10a)
 
 
-👤 **Nakitto Catherine**
+👤 **NAKITTO CATHERINE**
 
 - GitHub: [@githubhandle](https://github.com/Cathella)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nakitto-catherine2020/)
 
 
 ## 🤝 Contributing
