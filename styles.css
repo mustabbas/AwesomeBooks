@@ -32,6 +32,11 @@
   border-right: 0;
 }
 
+.nav a {
+  color: black;
+  text-decoration: none;
+}
+
 .display-none {
   display: none !important;
 }
@@ -117,5 +122,4 @@ input[type=text] {
 #date {
   text-align: right;
   margin-right: 1em;
-}
 }
