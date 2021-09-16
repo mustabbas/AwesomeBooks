@@ -29,6 +29,7 @@ class Book {
   }
 
   static showDate() {
+    // eslint-disable-next-line no-undef
     const { DateTime } = luxon;
     const myDate = document.querySelector('#date');
     const showMyDate = document.createElement('div');
