@@ -8,17 +8,32 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
- <h1>All awesome books</h1> 
-   <div class="book-list">
+  <div class="nav">
+    <h3>Awesome Book</h3>
+  <ul>
+    <li><a href="#" id="navlist">List</a></li>
+    <li id="navform">Add new</li>
+    <li id="navcontact">contact</li>
+  </ul>
+</div>
+ 
+   <div id="bklist" class="book-list">
+    <h1>All awesome books</h1> 
    <table id="list">
    </table>
    </div>
-   <div class="form">
+   <div id="bkform" class="form display-none">
      <hr>
      <h2>Add a new Book</h2>
    <input type="text" id="bookTitle" placeholder="Title"/>
    <input type="text" id="bookAuthor" placeholder="Author"/>
    <button id="add">Add</button>
+   </div>
+   <div id="contact" class="contact display-none">
+    sffdfdfdf
+   </div>
+   <div class="nav">
+    <h3>Copyright</h3>
    </div>
    <script type='text/javascript' src='script.js'></script>
 </body>

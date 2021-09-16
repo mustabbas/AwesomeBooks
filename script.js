@@ -2,6 +2,12 @@ const titleInput = document.getElementById('bookTitle');
 const authorInput = document.getElementById('bookAuthor');
 const addBook = document.getElementById('add');
 const list = document.getElementById('list');
+const navlist = document.getElementById('navlist');
+const navform = document.getElementById('navform');
+const navcontact = document.getElementById('navcontact');
+const bklist = document.getElementById('bklist');
+const bkform = document.getElementById('bkform');
+const contact = document.getElementById('contact');
 
 let BookArray = [];
 class Book {
@@ -57,6 +63,26 @@ if (localBook !== null) {
 } else {
   id = 0;
 }
+
+function toggleDisplayList() {
+  bklist.classList.remove('display-none');
+  bkform.classList.add('display-none');
+  contact.classList.add('display-none');
+}
+function toggleDisplayForm() {
+  bklist.classList.add('display-none');
+  bkform.classList.remove('display-none');
+  contact.classList.add('display-none');
+}
+function toggleDisplayContact() {
+  bklist.classList.add('display-none');
+  bkform.classList.add('display-none');
+  contact.classList.remove('display-none');
+}
+
+navlist.addEventListener('click', toggleDisplayList);
+navform.addEventListener('click', toggleDisplayForm);
+navcontact.addEventListener('click', toggleDisplayContact);
 
 addBook.addEventListener('click', () => {
   const myBook = new Book(id, titleInput.value, authorInput.value);
