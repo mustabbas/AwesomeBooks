@@ -113,3 +113,9 @@ input[type=text] {
   font-size: 1.2em;
   line-height: 1.7em;
 }
+
+#date {
+  text-align: right;
+  margin-right: 1em;
+}
+}

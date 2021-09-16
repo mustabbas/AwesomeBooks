@@ -27,6 +27,32 @@ class Book {
     Book.prototype.saveTolocal();
   }
 
+  static showDate() {
+    let current = new Date();
+    let month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+
+    let cDate = month[current.getMonth()] + ' ' + current.getDate() + "th " + current.getFullYear() + ",";
+    let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+    let dateTime = cDate + ' ' + cTime;
+
+    const myDate = document.querySelector('#date');
+    const showMyDate = document.createElement('div');
+    showMyDate.innerHTML = `${dateTime}`;
+    myDate.appendChild(showMyDate);
+  }
+
   // eslint-disable-next-line class-methods-use-this
   saveTolocal() {
     localStorage.setItem('BookArray', JSON.stringify(BookArray));
@@ -56,6 +82,7 @@ class Book {
     }
   }
 }
+
 const localBook = JSON.parse(localStorage.getItem('BookArray'));
 let id;
 if (localBook !== null) {
@@ -102,3 +129,7 @@ window.addEventListener('load', () => {
     }
   }
 });
+
+
+// Show date
+document.addEventListener('DOMContentLoaded', Book.showDate);
